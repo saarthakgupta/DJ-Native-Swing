@@ -15,6 +15,5 @@
 	<classpathentry kind="lib" path="lib_dev/netbeans/org-netbeans-modules-autoupdate-services.jar"/>
 	<classpathentry kind="lib" path="lib_dev/netbeans/org-netbeans-api-progress.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/DJNativeSwing"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/DJNativeSwing-SWTCore"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

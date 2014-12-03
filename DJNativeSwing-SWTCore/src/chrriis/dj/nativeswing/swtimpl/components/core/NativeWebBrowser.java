@@ -79,7 +79,8 @@ import chrriis.dj.nativeswing.swtimpl.core.SWTNativeComponent;
 /**
  * @author Christopher Deckers
  */
-class NativeWebBrowser extends SWTNativeComponent implements INativeWebBrowser {
+class NativeWebBrowser extends SWTNativeComponent implements
+		INativeWebBrowser {
 
 	private static class CMJ_closeWindow extends ControlCommandMessage {
 		@Override

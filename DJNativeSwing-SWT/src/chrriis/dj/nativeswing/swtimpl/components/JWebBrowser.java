@@ -231,10 +231,7 @@ public class JWebBrowser extends NSPanelComponent {
 		}
 	}
 
-	public JWebBrowser() {
-		super();
-
-	}
+	
 
 	/**
 	 * Construct a new web browser.

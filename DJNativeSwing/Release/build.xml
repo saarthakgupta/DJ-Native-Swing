@@ -3,8 +3,8 @@
 
   <target name="createRelease" description="Create the release">
     <delete file="DJNativeSwing.zip"/>
-    <ant antfile="documentation/build.xml" inheritall="false"/>
-    <ant antfile="build.xml" inheritall="false"/>
+    <ant antfile="documentation/build.xml" inheritall="true"/>
+    <ant antfile="build.xml" inheritall="true"/>
     <zip duplicate="preserve" destfile="Release/DJNativeSwing.zip">
       <!-- DJNativeSwing documents -->
       <zipfileset dir="." includes="licence.txt"/>
