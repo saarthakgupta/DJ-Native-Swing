@@ -79,21 +79,24 @@ public class DefaultVLCPlayerDecorator extends VLCPlayerDecorator {
       playButton = new JButton();
       configureComponent(playButton, VLCDecoratorComponentType.PLAY_BUTTON);
       playButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           vlcPlayer.getVLCPlaylist().play();
         }
       });
       pauseButton = new JButton();
       configureComponent(pauseButton, VLCDecoratorComponentType.PAUSE_BUTTON);
       pauseButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           vlcPlayer.getVLCPlaylist().togglePause();
         }
       });
       stopButton = new JButton();
       configureComponent(stopButton, VLCDecoratorComponentType.STOP_BUTTON);
       stopButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           vlcPlayer.getVLCPlaylist().stop();
         }
       });
@@ -101,7 +104,8 @@ public class DefaultVLCPlayerDecorator extends VLCPlayerDecorator {
       seekBarSlider = new JSlider(0, 10000, 0);
       seekBarSlider.setVisible(false);
       seekBarSlider.addChangeListener(new ChangeListener() {
-        public void stateChanged(ChangeEvent e) {
+        @Override
+		public void stateChanged(ChangeEvent e) {
           if(!isAdjustingSeekBar) {
             vlcPlayer.getVLCInput().setRelativePosition(((float)seekBarSlider.getValue()) / 10000);
           }
@@ -115,14 +119,16 @@ public class DefaultVLCPlayerDecorator extends VLCPlayerDecorator {
       margin.right = Math.min(2, margin.left);
       volumeButton.setMargin(margin);
       volumeButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           vlcPlayer.getVLCAudio().toggleMute();
         }
       });
       volumePanel.add(volumeButton);
       volumeSlider = new JSlider();
       volumeSlider.addChangeListener(new ChangeListener() {
-        public void stateChanged(ChangeEvent e) {
+        @Override
+		public void stateChanged(ChangeEvent e) {
           if(!isAdjustingVolume) {
             vlcPlayer.getVLCAudio().setVolume(volumeSlider.getValue());
           }
@@ -268,7 +274,8 @@ public class DefaultVLCPlayerDecorator extends VLCPlayerDecorator {
               sleep(1000);
             } catch(Exception e) {}
             SwingUtilities.invokeLater(new Runnable() {
-              public void run() {
+              @Override
+			public void run() {
                 if(currentThread != updateThread) {
                   return;
                 }

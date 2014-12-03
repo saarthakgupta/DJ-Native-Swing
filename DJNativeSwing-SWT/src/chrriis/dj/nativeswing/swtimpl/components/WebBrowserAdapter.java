@@ -14,18 +14,28 @@ package chrriis.dj.nativeswing.swtimpl.components;
  */
 public abstract class WebBrowserAdapter implements WebBrowserListener {
 
-  public void windowWillOpen(WebBrowserWindowWillOpenEvent e) {}
-  public void windowOpening(WebBrowserWindowOpeningEvent e) {}
-  public void windowClosing(WebBrowserEvent e) {}
+  @Override
+public void windowWillOpen(WebBrowserWindowWillOpenEvent e) {}
+  @Override
+public void windowOpening(WebBrowserWindowOpeningEvent e) {}
+  @Override
+public void windowClosing(WebBrowserEvent e) {}
 
-  public void locationChanging(WebBrowserNavigationEvent e) {}
-  public void locationChanged(WebBrowserNavigationEvent e) {}
-  public void locationChangeCanceled(WebBrowserNavigationEvent e) {}
+  @Override
+public void locationChanging(WebBrowserNavigationEvent e) {}
+  @Override
+public void locationChanged(WebBrowserNavigationEvent e) {}
+  @Override
+public void locationChangeCanceled(WebBrowserNavigationEvent e) {}
 
-  public void loadingProgressChanged(WebBrowserEvent e) {}
-  public void titleChanged(WebBrowserEvent e) {}
-  public void statusChanged(WebBrowserEvent e) {}
+  @Override
+public void loadingProgressChanged(WebBrowserEvent e) {}
+  @Override
+public void titleChanged(WebBrowserEvent e) {}
+  @Override
+public void statusChanged(WebBrowserEvent e) {}
 
-  public void commandReceived(WebBrowserCommandEvent e) {}
+  @Override
+public void commandReceived(WebBrowserCommandEvent e) {}
 
 }

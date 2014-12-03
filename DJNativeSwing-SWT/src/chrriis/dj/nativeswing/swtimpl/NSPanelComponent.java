@@ -64,27 +64,33 @@ public abstract class NSPanelComponent extends JPanel implements NSComponent {
     this.nativeComponent = nativeComponent;
   }
 
-  public void initializeNativePeer() {
+  @Override
+public void initializeNativePeer() {
     nativeComponent.initializeNativePeer();
   }
 
-  public void disposeNativePeer() {
+  @Override
+public void disposeNativePeer() {
     nativeComponent.disposeNativePeer();
   }
 
-  public boolean isNativePeerDisposed() {
+  @Override
+public boolean isNativePeerDisposed() {
     return nativeComponent.isNativePeerDisposed();
   }
 
-  public boolean isNativePeerInitialized() {
+  @Override
+public boolean isNativePeerInitialized() {
     return nativeComponent.isNativePeerInitialized();
   }
 
-  public boolean isNativePeerValid() {
+  @Override
+public boolean isNativePeerValid() {
     return nativeComponent.isNativePeerValid();
   }
 
-  public void runInSequence(Runnable runnable) {
+  @Override
+public void runInSequence(Runnable runnable) {
     nativeComponent.runInSequence(runnable);
   }
 

@@ -47,43 +47,53 @@ public class WebBrowserWindowFactory {
       }
     }
 
-    public JWebBrowser getWebBrowser() {
+    @Override
+	public JWebBrowser getWebBrowser() {
       return webBrowserWindowStrategy.getWebBrowser();
     }
 
-    public void setBarsVisible(boolean areBarsVisible) {
+    @Override
+	public void setBarsVisible(boolean areBarsVisible) {
       webBrowserWindowStrategy.setBarsVisible(areBarsVisible);
     }
 
-    public void setStatusBarVisible(boolean isStatusBarVisible) {
+    @Override
+	public void setStatusBarVisible(boolean isStatusBarVisible) {
       webBrowserWindowStrategy.setStatusBarVisible(isStatusBarVisible);
     }
 
-    public boolean isStatusBarVisisble() {
+    @Override
+	public boolean isStatusBarVisisble() {
       return webBrowserWindowStrategy.isStatusBarVisisble();
     }
 
-    public void setMenuBarVisible(boolean isMenuBarVisible) {
+    @Override
+	public void setMenuBarVisible(boolean isMenuBarVisible) {
       webBrowserWindowStrategy.setMenuBarVisible(isMenuBarVisible);
     }
 
-    public boolean isMenuBarVisisble() {
+    @Override
+	public boolean isMenuBarVisisble() {
       return webBrowserWindowStrategy.isMenuBarVisisble();
     }
 
-    public void setButtonBarVisible(boolean isButtonBarVisible) {
+    @Override
+	public void setButtonBarVisible(boolean isButtonBarVisible) {
       webBrowserWindowStrategy.setButtonBarVisible(isButtonBarVisible);
     }
 
-    public boolean isButtonBarVisisble() {
+    @Override
+	public boolean isButtonBarVisisble() {
       return webBrowserWindowStrategy.isButtonBarVisisble();
     }
 
-    public void setLocationBarVisible(boolean isLocationBarVisible) {
+    @Override
+	public void setLocationBarVisible(boolean isLocationBarVisible) {
       webBrowserWindowStrategy.setLocationBarVisible(isLocationBarVisible);
     }
 
-    public boolean isLocationBarVisisble() {
+    @Override
+	public boolean isLocationBarVisisble() {
       return webBrowserWindowStrategy.isLocationBarVisisble();
     }
 
@@ -122,43 +132,53 @@ public class WebBrowserWindowFactory {
       }
     }
 
-    public JWebBrowser getWebBrowser() {
+    @Override
+	public JWebBrowser getWebBrowser() {
       return webBrowserWindowStrategy.getWebBrowser();
     }
 
-    public void setBarsVisible(boolean areBarsVisible) {
+    @Override
+	public void setBarsVisible(boolean areBarsVisible) {
       webBrowserWindowStrategy.setBarsVisible(areBarsVisible);
     }
 
-    public void setStatusBarVisible(boolean isStatusBarVisible) {
+    @Override
+	public void setStatusBarVisible(boolean isStatusBarVisible) {
       webBrowserWindowStrategy.setStatusBarVisible(isStatusBarVisible);
     }
 
-    public boolean isStatusBarVisisble() {
+    @Override
+	public boolean isStatusBarVisisble() {
       return webBrowserWindowStrategy.isStatusBarVisisble();
     }
 
-    public void setMenuBarVisible(boolean isMenuBarVisible) {
+    @Override
+	public void setMenuBarVisible(boolean isMenuBarVisible) {
       webBrowserWindowStrategy.setMenuBarVisible(isMenuBarVisible);
     }
 
-    public boolean isMenuBarVisisble() {
+    @Override
+	public boolean isMenuBarVisisble() {
       return webBrowserWindowStrategy.isMenuBarVisisble();
     }
 
-    public void setButtonBarVisible(boolean isButtonBarVisible) {
+    @Override
+	public void setButtonBarVisible(boolean isButtonBarVisible) {
       webBrowserWindowStrategy.setButtonBarVisible(isButtonBarVisible);
     }
 
-    public boolean isButtonBarVisisble() {
+    @Override
+	public boolean isButtonBarVisisble() {
       return webBrowserWindowStrategy.isButtonBarVisisble();
     }
 
-    public void setLocationBarVisible(boolean isLocationBarVisible) {
+    @Override
+	public void setLocationBarVisible(boolean isLocationBarVisible) {
       webBrowserWindowStrategy.setLocationBarVisible(isLocationBarVisible);
     }
 
-    public boolean isLocationBarVisisble() {
+    @Override
+	public boolean isLocationBarVisisble() {
       return webBrowserWindowStrategy.isLocationBarVisisble();
     }
 

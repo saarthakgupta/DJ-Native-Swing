@@ -210,7 +210,8 @@ public class JHTMLEditor extends NSPanelComponent {
     instanceID = ObjectRegistry.getInstance().add(this);
     final AtomicBoolean result = new AtomicBoolean();
     InitializationListener initializationListener = new InitializationListener() {
-      public void objectInitialized() {
+      @Override
+	public void objectInitialized() {
         removeInitializationListener(this);
         result.set(true);
       }
@@ -223,7 +224,8 @@ public class JHTMLEditor extends NSPanelComponent {
         InitializationListener initializationListener = (InitializationListener)args[0];
         final AtomicBoolean result = (AtomicBoolean)args[1];
         EventDispatchUtils.sleepWithEventDispatch(new EventDispatchUtils.Condition() {
-          public boolean getValue() {
+          @Override
+		public boolean getValue() {
             return result.get();
           }
         }, 4000);

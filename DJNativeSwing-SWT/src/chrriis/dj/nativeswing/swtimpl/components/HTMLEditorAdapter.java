@@ -13,10 +13,12 @@ package chrriis.dj.nativeswing.swtimpl.components;
  */
 public class HTMLEditorAdapter implements HTMLEditorListener {
 
-  public void saveHTML(HTMLEditorSaveEvent e) {
+  @Override
+public void saveHTML(HTMLEditorSaveEvent e) {
   }
 
-  public void notifyDirtyStateChanged(HTMLEditorDirtyStateEvent e) {
+  @Override
+public void notifyDirtyStateChanged(HTMLEditorDirtyStateEvent e) {
   }
 
 }

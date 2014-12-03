@@ -205,7 +205,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       JMenuItem fileNewWindowMenuItem = new JMenuItem();
       configureComponent(fileNewWindowMenuItem, WebBrowserDecoratorComponentType.FILE_NEW_WINDOW_MENU_ITEM);
       fileNewWindowMenuItem.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           JWebBrowser newWebBrowser;
           switch(((INativeWebBrowser)webBrowser.getNativeComponent()).getRuntime()) {
             case WEBKIT:
@@ -228,7 +229,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       JMenuItem fileOpenLocationMenuItem = new JMenuItem();
       configureComponent(fileOpenLocationMenuItem, WebBrowserDecoratorComponentType.FILE_OPEN_LOCATION_MENU_ITEM);
       fileOpenLocationMenuItem.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           String path = askLocation();
           if(path != null) {
             webBrowser.navigate(path);
@@ -240,7 +242,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       JMenuItem fileOpenFileMenuItem = new JMenuItem();
       configureComponent(fileOpenFileMenuItem, WebBrowserDecoratorComponentType.FILE_OPEN_FILE_MENU_ITEM);
       fileOpenFileMenuItem.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           JFileChooser fileChooser = new JFileChooser();
           if(fileChooser.showOpenDialog(webBrowser) == JFileChooser.APPROVE_OPTION) {
             try {
@@ -260,7 +263,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       configureComponent(buttonBarCheckBoxMenuItem, WebBrowserDecoratorComponentType.VIEW_TOOLBARS_BUTTON_BAR_CHECKBOX_MENU_ITEM);
       buttonBarCheckBoxMenuItem.setSelected(isButtonBarVisible());
       buttonBarCheckBoxMenuItem.addItemListener(new ItemListener() {
-        public void itemStateChanged(ItemEvent e) {
+        @Override
+		public void itemStateChanged(ItemEvent e) {
           setButtonBarVisible(e.getStateChange() == ItemEvent.SELECTED);
         }
       });
@@ -269,7 +273,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       configureComponent(locationBarCheckBoxMenuItem, WebBrowserDecoratorComponentType.VIEW_TOOLBARS_LOCATION_BAR_CHECKBOX_MENU_ITEM);
       locationBarCheckBoxMenuItem.setSelected(isLocationBarVisible());
       locationBarCheckBoxMenuItem.addItemListener(new ItemListener() {
-        public void itemStateChanged(ItemEvent e) {
+        @Override
+		public void itemStateChanged(ItemEvent e) {
           setLocationBarVisible(e.getStateChange() == ItemEvent.SELECTED);
         }
       });
@@ -279,7 +284,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       configureComponent(statusBarCheckBoxMenuItem, WebBrowserDecoratorComponentType.VIEW_STATUS_BAR_CHECKBOX_MENU_ITEM);
       statusBarCheckBoxMenuItem.setSelected(isStatusBarVisible());
       statusBarCheckBoxMenuItem.addItemListener(new ItemListener() {
-        public void itemStateChanged(ItemEvent e) {
+        @Override
+		public void itemStateChanged(ItemEvent e) {
           setStatusBarVisible(e.getStateChange() == ItemEvent.SELECTED);
         }
       });
@@ -288,7 +294,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       backMenuItem = new JMenuItem();
       configureComponent(backMenuItem, WebBrowserDecoratorComponentType.VIEW_BACK_MENU_ITEM);
       backMenuItem.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           webBrowser.navigateBack();
           nativeWebBrowser.requestFocus();
         }
@@ -298,7 +305,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       forwardMenuItem = new JMenuItem();
       configureComponent(forwardMenuItem, WebBrowserDecoratorComponentType.VIEW_FORWARD_MENU_ITEM);
       forwardMenuItem.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           webBrowser.navigateForward();
           nativeWebBrowser.requestFocus();
         }
@@ -308,7 +316,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       reloadMenuItem = new JMenuItem();
       configureComponent(reloadMenuItem, WebBrowserDecoratorComponentType.VIEW_RELOAD_MENU_ITEM);
       reloadMenuItem.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           webBrowser.reloadPage();
           nativeWebBrowser.requestFocus();
         }
@@ -317,19 +326,23 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       stopMenuItem = new JMenuItem();
       configureComponent(stopMenuItem, WebBrowserDecoratorComponentType.VIEW_STOP_MENU_ITEM);
       stopMenuItem.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           webBrowser.stopLoading();
         }
       });
       stopMenuItem.setEnabled(false);
       viewMenu.add(stopMenuItem);
       viewMenu.getPopupMenu().addPopupMenuListener(new PopupMenuListener() {
-        public void popupMenuCanceled(PopupMenuEvent e) {
+        @Override
+		public void popupMenuCanceled(PopupMenuEvent e) {
         }
-        public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
+        @Override
+		public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
           isViewMenuVisible = false;
         }
-        public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
+        @Override
+		public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
           isViewMenuVisible = true;
           if(!isButtonBarVisible()) {
             updateNavigationButtons();
@@ -374,7 +387,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       configureComponent(backButton, WebBrowserDecoratorComponentType.BACK_BUTTON);
       backButton.setEnabled(menuBar.backMenuItem.isEnabled());
       backButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           webBrowser.navigateBack();
           nativeWebBrowser.requestFocus();
         }
@@ -383,7 +397,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       configureComponent(forwardButton, WebBrowserDecoratorComponentType.FORWARD_BUTTON);
       forwardButton.setEnabled(menuBar.forwardMenuItem.isEnabled());
       forwardButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           webBrowser.navigateForward();
           nativeWebBrowser.requestFocus();
         }
@@ -391,7 +406,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       reloadButton = new JButton();
       configureComponent(reloadButton, WebBrowserDecoratorComponentType.RELOAD_BUTTON);
       reloadButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           webBrowser.reloadPage();
           nativeWebBrowser.requestFocus();
         }
@@ -400,7 +416,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
       configureComponent(stopButton, WebBrowserDecoratorComponentType.STOP_BUTTON);
       stopButton.setEnabled(menuBar.stopMenuItem.isEnabled());
       stopButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           webBrowser.stopLoading();
         }
       });
@@ -450,7 +467,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
         }
       });
       ActionListener goActionListener = new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           webBrowser.navigate(locationField.getText());
           nativeWebBrowser.requestFocus();
         }
@@ -726,7 +744,8 @@ public class DefaultWebBrowserDecorator extends WebBrowserDecorator {
     JMenuItem fileCloseMenuItem = new JMenuItem();
     configureComponent(fileCloseMenuItem, WebBrowserDecoratorComponentType.FILE_CLOSE_MENU_ITEM);
     fileCloseMenuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
+      @Override
+	public void actionPerformed(ActionEvent e) {
         webBrowserWindow.dispose();
       }
     });

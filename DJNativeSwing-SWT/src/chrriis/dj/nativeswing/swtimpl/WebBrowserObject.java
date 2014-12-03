@@ -93,7 +93,8 @@ public abstract class WebBrowserObject {
     String resourceLocation = WebServer.getDefaultWebServer().getDynamicContentURL(WebBrowserObject.class.getName(), String.valueOf(instanceID), "html");
     final AtomicBoolean result = new AtomicBoolean();
     InitializationListener initializationListener = new InitializationListener() {
-      public void objectInitialized() {
+      @Override
+	public void objectInitialized() {
         removeInitializationListener(this);
         result.set(true);
       }
@@ -106,7 +107,8 @@ public abstract class WebBrowserObject {
         InitializationListener initializationListener = (InitializationListener)args[0];
         final AtomicBoolean result = (AtomicBoolean)args[1];
         EventDispatchUtils.sleepWithEventDispatch(new EventDispatchUtils.Condition() {
-          public boolean getValue() {
+          @Override
+		public boolean getValue() {
             return result.get();
           }
         }, 4000);
@@ -295,7 +297,8 @@ public abstract class WebBrowserObject {
         arguments[i] = headerMap.get("j_arg" + i);
       }
       SwingUtilities.invokeLater(new Runnable() {
-        public void run() {
+        @Override
+		public void run() {
           WebBrowserListener[] webBrowserListeners = webBrowserObject.webBrowser.getWebBrowserListeners();
           WebBrowserCommandEvent e = null;
           for(int i=webBrowserListeners.length-1; i>= 0; i--) {

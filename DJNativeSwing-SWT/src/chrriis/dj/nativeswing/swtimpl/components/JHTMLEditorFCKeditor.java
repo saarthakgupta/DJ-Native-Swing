@@ -52,7 +52,8 @@ class JHTMLEditorFCKeditor implements JHTMLEditorImplementation {
 
   private static final String LS = Utils.LINE_SEPARATOR;
 
-  public WebServerContent getWebServerContent(final HTTPRequest httpRequest, final String resourcePath, final int instanceID) {
+  @Override
+public WebServerContent getWebServerContent(final HTTPRequest httpRequest, final String resourcePath, final int instanceID) {
     if("index.html".equals(resourcePath)) {
       return new WebServerContent() {
         @Override
@@ -173,7 +174,8 @@ class JHTMLEditorFCKeditor implements JHTMLEditorImplementation {
     }
     if("jhtml_save".equals(resourcePath)) {
       SwingUtilities.invokeLater(new Runnable() {
-        public void run() {
+        @Override
+		public void run() {
           String html = JHTMLEditor.convertLinksToLocal(httpRequest.getHTTPPostDataArray()[0].getHeaderMap().get(EDITOR_INSTANCE));
           HTMLEditorSaveEvent e = null;
           for(HTMLEditorListener listener: htmlEditor.getHTMLEditorListeners()) {
@@ -262,7 +264,8 @@ class JHTMLEditorFCKeditor implements JHTMLEditorImplementation {
           if("GetFoldersAndFiles".equals(command) || "GetFolders".equals(command)) {
             sb.append("<Folders>");
             for(File file: new File(currentDir).listFiles(new FileFilter() {
-              public boolean accept(File pathname) {
+              @Override
+			public boolean accept(File pathname) {
                 return !pathname.isFile() && !pathname.isHidden() && pathname.listFiles() != null;
               }
             })) {
@@ -273,7 +276,8 @@ class JHTMLEditorFCKeditor implements JHTMLEditorImplementation {
           if("GetFoldersAndFiles".equals(command)) {
             sb.append("<Files>");
             for(File file: new File(currentDir).listFiles(new FileFilter() {
-              public boolean accept(File pathname) {
+              @Override
+			public boolean accept(File pathname) {
                 if(!pathname.isFile()) {
                   return false;
                 }
@@ -315,17 +319,20 @@ class JHTMLEditorFCKeditor implements JHTMLEditorImplementation {
     return WebServer.getDefaultWebServer ().getURLContent(WebServer.getDefaultWebServer ().getClassPathResourceURL(JHTMLEditor.class.getName(), PACKAGE_PREFIX + resourcePath));
   }
 
-  public void clearDirtyIndicator() {
+  @Override
+public void clearDirtyIndicator() {
     htmlEditor.getWebBrowser().executeJavascript("JH_clearDirtyIndicator();");
   }
 
-  public void setDirtyTrackingActive(boolean isDirtyTrackingActive) {
+  @Override
+public void setDirtyTrackingActive(boolean isDirtyTrackingActive) {
     htmlEditor.getWebBrowser().executeJavascript("JH_setDirtyTrackingActive(" + isDirtyTrackingActive + ");");
   }
 
   private volatile Object tempResult;
 
-  public String getHTMLContent() {
+  @Override
+public String getHTMLContent() {
     JWebBrowser webBrowser = htmlEditor.getWebBrowser();
     if(!webBrowser.isNativePeerInitialized()) {
       return "";
@@ -336,7 +343,8 @@ class JHTMLEditorFCKeditor implements JHTMLEditorImplementation {
     long start = System.currentTimeMillis();
     while(true) {
       EventDispatchUtils.sleepWithEventDispatch(new EventDispatchUtils.Condition() {
-        public boolean getValue() {
+        @Override
+		public boolean getValue() {
           return tempResult != JHTMLEditorFCKeditor.this;
         }
       }, 50);
@@ -350,7 +358,8 @@ class JHTMLEditorFCKeditor implements JHTMLEditorImplementation {
     return null;
   }
 
-  public void setHTMLContent(String html) {
+  @Override
+public void setHTMLContent(String html) {
 //    webBrowser.executeJavascript("JH_setData('" + Utils.encodeURL(html) + "');");
     // There is a problem: IE crashes when it has the focus and is flooded with this message.
     // While waiting for an SWT fix, we use the workaround to disable the component which loses the focus.

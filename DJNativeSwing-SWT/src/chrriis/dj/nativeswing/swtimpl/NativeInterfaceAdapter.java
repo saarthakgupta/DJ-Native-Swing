@@ -13,13 +13,16 @@ package chrriis.dj.nativeswing.swtimpl;
  */
 public abstract class NativeInterfaceAdapter implements NativeInterfaceListener {
 
-  public void nativeInterfaceClosed() {
+  @Override
+public void nativeInterfaceClosed() {
   }
 
-  public void nativeInterfaceInitialized() {
+  @Override
+public void nativeInterfaceInitialized() {
   }
 
-  public void nativeInterfaceOpened() {
+  @Override
+public void nativeInterfaceOpened() {
   }
 
 }

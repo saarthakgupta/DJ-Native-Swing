@@ -23,7 +23,8 @@ public class EventDispatchUtils {
    */
   public static void sleepWithEventDispatch(int timeout) {
     sleepWithEventDispatch(new Condition() {
-      public boolean getValue() {
+      @Override
+	public boolean getValue() {
         return false;
       }
     }, timeout);

@@ -50,7 +50,8 @@ public class JFlashPlayer extends NSPanelComponent {
 
   static {
     WebServer.getDefaultWebServer().addContentProvider(new WebServerContentProvider() {
-      public WebServerContent getWebServerContent(HTTPRequest httpRequest) {
+      @Override
+	public WebServerContent getWebServerContent(HTTPRequest httpRequest) {
         // When the Flash player wants to access the host files, it asks for this one...
         if("/crossdomain.xml".equals(httpRequest.getResourcePath())) {
           return new WebServerContent() {

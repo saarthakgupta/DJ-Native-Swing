@@ -57,21 +57,24 @@ public class DefaultFlashPlayerDecorator extends FlashPlayerDecorator {
       playButton = new JButton();
       configureComponent(playButton, FlashDecoratorComponentType.PLAY_BUTTON);
       playButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           flashPlayer.play();
         }
       });
       pauseButton = new JButton();
       configureComponent(pauseButton, FlashDecoratorComponentType.PAUSE_BUTTON);
       pauseButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           flashPlayer.pause();
         }
       });
       stopButton = new JButton();
       configureComponent(stopButton, FlashDecoratorComponentType.STOP_BUTTON);
       stopButton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+        @Override
+		public void actionPerformed(ActionEvent e) {
           flashPlayer.stop();
         }
       });

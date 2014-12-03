@@ -350,7 +350,8 @@ public enum NSSystemPropertySWT {
    */
   public String get(final String defaultValue) {
     return AccessController.doPrivileged(new PrivilegedAction<String>() {
-      public String run() {
+      @Override
+	public String run() {
         String name = getName();
         String value = System.getProperty(name);
         if(value != null) {
@@ -380,7 +381,8 @@ public enum NSSystemPropertySWT {
     }
 
     return AccessController.doPrivileged(new PrivilegedAction<String>() {
-      public String run() {
+      @Override
+	public String run() {
         return System.setProperty(getName(), value);
       }
     });

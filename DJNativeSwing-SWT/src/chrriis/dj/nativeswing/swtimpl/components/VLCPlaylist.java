@@ -189,7 +189,8 @@ public class VLCPlaylist {
               isFirst = false;
             } catch(Exception e) {}
             SwingUtilities.invokeLater(new Runnable() {
-              public void run() {
+              @Override
+			public void run() {
                 if(currentThread != playlistFixThread) {
                   return;
                 }

@@ -24,6 +24,7 @@ import chrriis.dj.nativeswing.NSOption;
 import chrriis.dj.nativeswing.swtimpl.EventDispatchUtils;
 import chrriis.dj.nativeswing.swtimpl.NSPanelComponent;
 import chrriis.dj.nativeswing.swtimpl.NativeComponent;
+
 import chrriis.dj.nativeswing.swtimpl.components.internal.INativeWebBrowser;
 import chrriis.dj.nativeswing.swtimpl.components.internal.INativeWebBrowserStatic;
 import chrriis.dj.nativeswing.swtimpl.internal.NativeCoreObjectFactory;
@@ -230,6 +231,11 @@ public class JWebBrowser extends NSPanelComponent {
 		}
 	}
 
+	public JWebBrowser() {
+		super();
+
+	}
+
 	/**
 	 * Construct a new web browser.
 	 * 
@@ -237,6 +243,7 @@ public class JWebBrowser extends NSPanelComponent {
 	 *            the options to configure the behavior of this component.
 	 */
 	public JWebBrowser(NSOption... options) {
+
 		Map<Object, Object> optionMap = NSOption.createOptionMap(options);
 		INativeWebBrowser.WebBrowserRuntime runtime = INativeWebBrowser.WebBrowserRuntime.DEFAULT;
 		if (optionMap.get(USE_XULRUNNER_RUNTIME_OPTION_KEY) != null) {
@@ -648,6 +655,7 @@ public class JWebBrowser extends NSPanelComponent {
 			for (int i = 0; i < 20; i++) {
 				EventDispatchUtils.sleepWithEventDispatch(
 						new EventDispatchUtils.Condition() {
+							@Override
 							public boolean getValue() {
 								return result.get() != null;
 							}
@@ -678,6 +686,7 @@ public class JWebBrowser extends NSPanelComponent {
 					webBrowserListener);
 		}
 
+		@Override
 		public void commandReceived(WebBrowserCommandEvent e) {
 			WebBrowserListener webBrowserListener = this.webBrowserListener
 					.get();
@@ -691,6 +700,7 @@ public class JWebBrowser extends NSPanelComponent {
 			}
 		}
 
+		@Override
 		public void loadingProgressChanged(WebBrowserEvent e) {
 			WebBrowserListener webBrowserListener = this.webBrowserListener
 					.get();
@@ -699,6 +709,7 @@ public class JWebBrowser extends NSPanelComponent {
 			}
 		}
 
+		@Override
 		public void locationChangeCanceled(WebBrowserNavigationEvent e) {
 			WebBrowserListener webBrowserListener = this.webBrowserListener
 					.get();
@@ -707,6 +718,7 @@ public class JWebBrowser extends NSPanelComponent {
 			}
 		}
 
+		@Override
 		public void locationChanged(WebBrowserNavigationEvent e) {
 			WebBrowserListener webBrowserListener = this.webBrowserListener
 					.get();
@@ -715,6 +727,7 @@ public class JWebBrowser extends NSPanelComponent {
 			}
 		}
 
+		@Override
 		public void locationChanging(WebBrowserNavigationEvent e) {
 			WebBrowserListener webBrowserListener = this.webBrowserListener
 					.get();
@@ -723,6 +736,7 @@ public class JWebBrowser extends NSPanelComponent {
 			}
 		}
 
+		@Override
 		public void statusChanged(WebBrowserEvent e) {
 			WebBrowserListener webBrowserListener = this.webBrowserListener
 					.get();
@@ -731,6 +745,7 @@ public class JWebBrowser extends NSPanelComponent {
 			}
 		}
 
+		@Override
 		public void titleChanged(WebBrowserEvent e) {
 			WebBrowserListener webBrowserListener = this.webBrowserListener
 					.get();
@@ -739,6 +754,7 @@ public class JWebBrowser extends NSPanelComponent {
 			}
 		}
 
+		@Override
 		public void windowClosing(WebBrowserEvent e) {
 			WebBrowserListener webBrowserListener = this.webBrowserListener
 					.get();
@@ -747,6 +763,7 @@ public class JWebBrowser extends NSPanelComponent {
 			}
 		}
 
+		@Override
 		public void windowOpening(WebBrowserWindowOpeningEvent e) {
 			WebBrowserListener webBrowserListener = this.webBrowserListener
 					.get();
@@ -755,6 +772,7 @@ public class JWebBrowser extends NSPanelComponent {
 			}
 		}
 
+		@Override
 		public void windowWillOpen(WebBrowserWindowWillOpenEvent e) {
 			WebBrowserListener webBrowserListener = this.webBrowserListener
 					.get();
@@ -935,6 +953,10 @@ public class JWebBrowser extends NSPanelComponent {
 	 */
 	public boolean print(boolean isShowingDialog) {
 		return nativeWebBrowser.print(isShowingDialog);
+	}
+
+	public Object executeJavascriptWithResult2(String script) {
+		return nativeWebBrowser.executeJavascriptWithResult(script);
 	}
 
 }
